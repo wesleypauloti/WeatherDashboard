@@ -117,7 +117,7 @@ const Dashboard = () => {
         </div>
         <CitySearch onCitySelect={(city) => setSelectedCity(city.name)} />
       </header>
-      <h1 className="text-3xl font-bold mb-8" style={{ textAlign: 'center' }}>Dashboard de Previsão do Tempo</h1>
+      <h1 className="text-3xl font-bold mb-8" style={{ textAlign: 'center', marginTop: 50 }}>Previsão do Tempo</h1>
 
       {/* Componente de busca e seleção de cidade */}
       <h2 style={{ textAlign: 'center', fontSize: '2rem' }}>{selectedCity}</h2>
