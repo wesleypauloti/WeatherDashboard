@@ -5,6 +5,7 @@ import HourlyChart from './HourlyChart';
 import DailyChart from './DailyChart';
 import RainChanceChart from './components/RainChanceChart';
 import CitySearch from './components/CitySearch';
+import Footer from './components/Footer';
 
 const Dashboard = () => {
   const key = 'b31a6078550b413695d215547241011';
@@ -12,6 +13,7 @@ const Dashboard = () => {
   const [selectedCity, setSelectedCity] = useState('São Paulo');
   const [nextDayData, setNextDayData] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
+  const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     const fetchForecastData = async () => {
@@ -79,31 +81,42 @@ const Dashboard = () => {
 
   const nextWeekdays = getNextWeekdays();
 
-  const Footer = () => (
-    <footer style={{
+  const styles = {
+    header: {
       position: 'fixed',
-      bottom: 0,
+      top: 0,
       left: 0,
       right: 0,
       width: '100%',
-      backgroundColor: '#333',  // Cor de fundo mais escura
-      color: '#fff',  // Texto claro para contraste
+      height: isMobile ? 75 : 60,
+      backgroundColor: '#333',
+      display: 'flex',
+      flexDirection: isMobile ? 'column' : 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '0 20px',
+      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+      zIndex: 1000,
+    },
+    logoContainer: {
+      display: 'flex',
+      alignItems: 'center',
+    },
+    title: {
+      color: '#fff',
       textAlign: 'center',
-      padding: '10px 0',  // Altura reduzida
-      fontSize: '0.8rem',
-    }}>
-      <p>
-        Desenvolvido por WesleyPauloTI &copy; {new Date().getFullYear()}
-      </p>
-      <p>
-        <a href="https://github.com/wesleypauloti" target="_blank" rel="noopener noreferrer">GitHub</a> | 
-        <a href="www.linkedin.com/in/wesley-paulo-ti" target="_blank" rel="noopener noreferrer"> LinkedIn</a>
-      </p>
-    </footer>
-  );
+      fontSize: isMobile ? '1.2rem' : '1.5rem',
+    },
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-5" style={{ backgroundColor: 'white', marginBottom: 100 }}>
+      <header style={styles.header}>
+        <div style={styles.logoContainer}>
+          <h1 style={styles.title}>WeatherDashboard</h1>
+        </div>
+        <CitySearch onCitySelect={(city) => setSelectedCity(city.name)} />
+      </header>
       <h1 className="text-3xl font-bold mb-8" style={{ textAlign: 'center' }}>Dashboard de Previsão do Tempo</h1>
 
       {/* Componente de busca e seleção de cidade */}
@@ -144,9 +157,7 @@ const Dashboard = () => {
             <span className="text-lg">{dailyData[0].day.mintemp_c.toFixed()}°C</span>
           </div>
         </div>
-      </div>
-
-      <CitySearch onCitySelect={(city) => setSelectedCity(city.name)} />
+      </div>      
 
       <h2 className="text-3xl font-bold mb-8" style={{ textAlign: 'center' }}>Informações do Dia</h2>
 
