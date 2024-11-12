@@ -66,7 +66,7 @@ const HourlyChart = ({ hourlyData }) => {
         plugins: {
             title: {
                 display: true,
-                text: 'Previsão de Temperatura nas Próximas 24 Horas',
+                text: 'Previsão de Temperatura até às 24 Horas',
             },
         },
     };
@@ -92,7 +92,7 @@ const HourlyChart = ({ hourlyData }) => {
         plugins: {
             title: {
                 display: true,
-                text: 'Previsão de Chance de Chuva nas Próximas 24 Horas',
+                text: 'Previsão de Chance de Chuva até às 24 Horas',
             },
         },
     };
