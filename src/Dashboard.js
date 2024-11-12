@@ -79,8 +79,31 @@ const Dashboard = () => {
 
   const nextWeekdays = getNextWeekdays();
 
+  const Footer = () => (
+    <footer style={{
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: '100%',
+      backgroundColor: '#333',  // Cor de fundo mais escura
+      color: '#fff',  // Texto claro para contraste
+      textAlign: 'center',
+      padding: '10px 0',  // Altura reduzida
+      fontSize: '0.8rem',
+    }}>
+      <p>
+        Desenvolvido por WesleyPauloTI &copy; {new Date().getFullYear()}
+      </p>
+      <p>
+        <a href="https://github.com/wesleypauloti" target="_blank" rel="noopener noreferrer">GitHub</a> | 
+        <a href="www.linkedin.com/in/wesley-paulo-ti" target="_blank" rel="noopener noreferrer"> LinkedIn</a>
+      </p>
+    </footer>
+  );
+
   return (
-    <div className="min-h-screen bg-gray-100 p-5" style={{ backgroundColor: 'white' }}>
+    <div className="min-h-screen bg-gray-100 p-5" style={{ backgroundColor: 'white', marginBottom: 100 }}>
       <h1 className="text-3xl font-bold mb-8" style={{ textAlign: 'center' }}>Dashboard de Previsão do Tempo</h1>
 
       {/* Componente de busca e seleção de cidade */}
@@ -239,6 +262,7 @@ const Dashboard = () => {
           <RainChanceChart dailyData={adjustedDailyData} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
