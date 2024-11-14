@@ -113,7 +113,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gray-100 p-5" style={{ backgroundColor: 'white', marginBottom: 100 }}>
       <header style={styles.header}>
         <div style={styles.logoContainer}>
-          <h1 style={styles.title}>WeatherDashboard</h1>
+          <h1 style={styles.title}>WeatherDashboards</h1>
         </div>
         <CitySearch onCitySelect={(city) => setSelectedCity(city.name)} />
       </header>
