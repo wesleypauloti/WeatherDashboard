@@ -6,6 +6,7 @@ import DailyChart from './DailyChart';
 import RainChanceChart from './components/RainChanceChart';
 import CitySearch from './components/CitySearch';
 import Footer from './components/Footer';
+import { Helmet } from 'react-helmet';
 
 const Dashboard = () => {
   const key = 'b31a6078550b413695d215547241011';
@@ -111,6 +112,9 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-5" style={{ backgroundColor: 'white', marginBottom: 100 }}>
+      <Helmet>
+        <title>WeatherDashboard</title>
+      </Helmet>
       <header style={styles.header}>
         <div style={styles.logoContainer}>
           <h1 style={styles.title}>WeatherDashboard</h1>
