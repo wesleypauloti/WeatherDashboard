@@ -16,6 +16,7 @@ const Dashboard = () => {
   const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
+    document.title = 'WeatherDashboard';
     const fetchForecastData = async () => {
       try {
         const encodedCity = encodeURIComponent(selectedCity);
